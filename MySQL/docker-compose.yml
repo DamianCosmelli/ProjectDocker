@@ -1,0 +1,17 @@
+version: '2'
+
+services:
+  db:
+    image: mysql:5.7
+    #restart: always
+    environment:
+      MYSQL_DATABASE: 'dbTest'
+      MYSQL_USER: 'user'
+      MYSQL_PASSWORD: 'password'
+      MYSQL_ROOT_PASSWORD: 'password'
+    ports:
+      - '33060:3306'
+    expose:
+      - '3306'
+    volumes:
+      - ./../dck_volumes/mysql:/var/lib/mysql
