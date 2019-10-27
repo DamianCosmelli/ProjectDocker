@@ -5,6 +5,8 @@ services:
     image: dorowu/ubuntu-desktop-lxde-vnc
     ports:
       - "6080:80"
-    command: -H unix:///var/run/docker.sock
     volumes:
       - ./../dck_volumes/Ubuntu_dsk:/dev/shm dorowu/ubuntu-desktop-lxde-vnc
+    environment: 
+     USER: bishops
+     PASSWORD: bishops
