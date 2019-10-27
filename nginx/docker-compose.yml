@@ -6,4 +6,4 @@ services:
     ports: 
       - '83:80'
     volumes:
-      - ./../htdocs:/var/www/html
+      - ./../htdocs:/usr/share/nginx/html
