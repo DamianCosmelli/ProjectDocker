@@ -5,12 +5,12 @@ services:
     image: mysql:5.7
     #restart: always
     environment:
-      MYSQL_DATABASE: 'dbTest'
-      MYSQL_USER: 'user'
-      MYSQL_PASSWORD: 'password'
-      MYSQL_ROOT_PASSWORD: 'password'
+      #MYSQL_DATABASE: 'dbTest'
+      MYSQL_USER: 'dbuser'
+      MYSQL_PASSWORD: 'dbuser'
+      MYSQL_ROOT_PASSWORD: 'root'
     ports:
-      - '33060:3306'
+      - '3306:3306'
     expose:
       - '3306'
     volumes:
