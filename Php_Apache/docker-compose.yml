@@ -1,23 +1,9 @@
 version: '2'
 
 services:
-  php70:
-    image: php:7.0-apache
-    ports: 
-      - '81:80'
-    volumes:
-      - ./../htdocs:/var/www/html
-
-  php71:
-    image: php:7.1-apache
-    ports: 
-      - '82:80'
-    volumes:
-      - ./../htdocs:/var/www/html
-
   php73:
     image: php:7.3-apache
     ports: 
-      - '83:80'
+      - '80:80'
     volumes:
-      - ./../htdocs:/var/www/html
+      - ./../../ProjectWeb:/var/www/html

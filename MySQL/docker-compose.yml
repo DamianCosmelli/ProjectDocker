@@ -2,10 +2,9 @@ version: '2'
 
 services:
   db:
-    image: mysql:5.7
-    #restart: always
+    image: mysql:8.0
+    restart: always
     environment:
-      #MYSQL_DATABASE: 'dbTest'
       MYSQL_USER: 'dbuser'
       MYSQL_PASSWORD: 'dbuser'
       MYSQL_ROOT_PASSWORD: 'root'
