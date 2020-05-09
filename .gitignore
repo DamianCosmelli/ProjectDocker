@@ -1,5 +1,4 @@
 dck_volumes/**/
-htdocs/**/
 *.php
 *.html
 *.js
