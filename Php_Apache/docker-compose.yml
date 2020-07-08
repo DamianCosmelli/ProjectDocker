@@ -4,6 +4,7 @@ services:
   php73:
     image: php:7.3-apache
     restart: always
+    container_name: PHP-73-Apache
     ports: 
       - '80:80'
     volumes:
