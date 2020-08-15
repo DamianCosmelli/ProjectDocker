@@ -1,0 +1,52 @@
+version: '2.1'
+
+networks:
+  frontend:
+    external: false
+
+services:
+  kong-database:
+    image: postgres:9.6
+    container_name: kong-database-9.6
+    environment:
+      - POSTGRES_USER=kong
+      - POSTGRES_DB=kong
+      - POSTGRES_PASSWORD=kong
+    volumes:
+      - ./db_data:/var/lib/postgresql/data
+    networks:
+      - frontend
+    healthcheck:
+      test: ["CMD", "pg_isready", "-U", "kong"]
+      interval: 30s
+      timeout: 30s
+      retries: 3
+  kong:
+    image: kong:1.3.0
+    container_name: kong-1.3.0
+    depends_on:
+      kong-database:
+        condition: service_healthy
+    networks:
+      - frontend
+    environment:
+      - KONG_DATABASE=postgres
+      - KONG_PG_HOST=kong-database-9.6
+      - KONG_PG_DATABASE=postgres
+      - KONG_PG_PASSWORD=kong
+      - KONG_PG_USER=kong
+      - KONG_PROXY_ACCESS_LOG=/dev/stdout
+      - KONG_ADMIN_ACCESS_LOG=/dev/stdout
+      - KONG_PROXY_ERROR_LOG=/dev/stderr
+      - KONG_ADMIN_ERROR_LOG=/dev/stderr
+      - KONG_ADMIN_LISTEN=0.0.0.0:8001, 0.0.0.0:8444 ssl
+    ports:
+      - "8000:8000"
+      - "8443:8443"
+      - "8001:8001"
+      - "8444:8444"
+    healthcheck:
+      test: ["CMD", "kong", "health"]
+      interval: 10s
+      timeout: 10s
+      retries: 10
