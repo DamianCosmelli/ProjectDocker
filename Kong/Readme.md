@@ -8,6 +8,10 @@
 
 ### Migraciones
 
+    sh migration.sh
+
+o 
+
     docker run --rm \
         --link kong-database-9.6:kong-database-9.6 \
         --network kong_frontend \
@@ -22,3 +26,7 @@
 ### Kong
 
     docker-compose up -d kong
+
+### Konga
+
+    docker-compose up -d konga

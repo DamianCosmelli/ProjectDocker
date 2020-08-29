@@ -8,6 +8,7 @@ services:
   kong-database:
     image: postgres:9.6
     container_name: kong-database-9.6
+    restart: always
     environment:
       - POSTGRES_USER=kong
       - POSTGRES_DB=kong
@@ -24,6 +25,7 @@ services:
   kong:
     image: kong:1.3.0
     container_name: kong-1.3.0
+    restart: always
     depends_on:
       kong-database:
         condition: service_healthy
@@ -50,3 +52,16 @@ services:
       interval: 10s
       timeout: 10s
       retries: 10
+  konga:
+    image: pantsel/konga
+    container_name: konga
+    restart: always
+    depends_on:
+      kong:
+        condition: service_healthy
+    networks:
+      - frontend
+    environment:
+      - NODE_ENV=production
+    ports: 
+      - 15000:1337
