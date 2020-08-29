@@ -2,3 +2,4 @@ dck_volumes/**/
 *.php
 *.html
 *.js
+kong/db_data/
