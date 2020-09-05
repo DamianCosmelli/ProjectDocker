@@ -3,3 +3,5 @@ dck_volumes/**/
 *.html
 *.js
 kong/db_data/
+Plex Media Server/
+tmp/
