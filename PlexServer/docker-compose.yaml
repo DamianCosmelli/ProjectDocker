@@ -1,0 +1,31 @@
+version: "2"
+
+services:
+
+    plex:
+        image: jaymoulin/plex
+        container_name: PlexServer
+        ports: 
+        - "32400:32400"
+        #- "33400:33400"
+        hostname: plexserver
+        volumes:
+        - ./Plex Media Server:/root/Library/Application Support/Plex Media Server
+        - ./tmp:/tmp
+        - ${PELICULAS}:/media/peliculas
+        - ${ANIME}:/media/anime
+        - ${ANIMEPELICULA}:/media/anime_pelicula
+        - ${DC}:/media/dc
+        - ${SERIES}:/media/series
+        restart: always
+        networks: 
+            lan:
+                ipv4_address: 192.168.0.13
+
+networks:
+  lan:
+    driver: bridge
+    ipam:
+      config:
+        - subnet: "192.168.0.0/24"       
+          gateway: "192.168.0.1"
