@@ -20,6 +20,6 @@ services:
     command: -- --dev=reload
 #    command: odoo scaffold /mnt/extra-addons/test_module
     volumes:
-      - ./../dck_volumes/odoo/addons:/mnt/extra-addons
-      - ./../dck_volumes/odoo/etc:/etc/odoo
+      - ./odoo_data/addons:/mnt/extra-addons
+      - ./odoo_data/etc:/etc/odoo
     restart: always    

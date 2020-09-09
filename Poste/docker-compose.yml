@@ -22,7 +22,7 @@ services:
       - "993:993"
       - "995:995"
     volumes:
-      - ./../dck_volumes/Poste:/data
+      - ./poste_data:/data
     environment:
       - HTTPS=OFF
       - DISABLE_CLAMAV=TRUE
