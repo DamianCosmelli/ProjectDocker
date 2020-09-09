@@ -10,4 +10,4 @@ services:
     command: -H unix:///var/run/docker.sock
     volumes:
       - //var/run/docker.sock:/var/run/docker.sock
-      - ./../dck_volumes/portainer_data:/data
+      - ./portainer_data:/data
