@@ -6,3 +6,4 @@ Plex Media Server/
 tmp/
 portainer_data/
 live/
+mysql_data/
