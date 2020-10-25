@@ -2,9 +2,9 @@ version: '2'
 
 services:
   db:
-    image: mysql:8.0
+    image: mysql:8.0.21
     command: --default-authentication-plugin=mysql_native_password
-    container_name: MySQL-80
+    container_name: MySQL-80.21
     restart: always
     environment:
       MYSQL_USER: 'dbuser'
