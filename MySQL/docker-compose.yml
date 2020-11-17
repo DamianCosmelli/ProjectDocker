@@ -1,10 +1,10 @@
-version: '2'
+version: '3.5'
 
 services:
   db:
     image: mysql:8.0.21
-    command: --default-authentication-plugin=mysql_native_password
-    container_name: MySQL-80.21
+    command: --default-authentication-plugin=mysql_native_password --lower_case_table_names=1 --sql_mode=""
+    container_name: MySQL-8.0.21
     restart: always
     environment:
       MYSQL_USER: 'dbuser'
@@ -15,4 +15,4 @@ services:
     expose:
       - '3306'
     volumes:
-      - ./mysql_data:/var/lib/mysql
+      - ./mysql_data:/var/lib/mysql/
