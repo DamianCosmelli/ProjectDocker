@@ -17,6 +17,7 @@ services:
         - ${ANIMEPELICULA}:/media/anime_pelicula
         - ${DC}:/media/dc
         - ${SERIES}:/media/series
+        - ${ANIMEEXTENDS}:/media/anime_extends
         restart: always
         networks: 
             lan:
