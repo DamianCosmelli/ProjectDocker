@@ -3,15 +3,21 @@ version: "2"
 services:
 
     plex:
-        image: jaymoulin/plex
+        #image: jaymoulin/plex
+        image: ghcr.io/linuxserver/plex
         container_name: PlexServer
         ports: 
         - "32400:32400"
         #- "33400:33400"
         hostname: plexserver
+        environment: 
+          TZ: 'America/Argentina/Buenos_Aires'
+          PUID: 1000
+          PGID: 1000
         volumes:
-        - ./Plex Media Server:/root/Library/Application Support/Plex Media Server
-        - ./tmp:/tmp
+        #- ./Plex Media Server:/root/Library/Application Support/Plex Media Server
+        #- ./tmp:/tmp
+        - ./Plex Library:/config
         - ${PELICULAS}:/media/peliculas
         - ${ANIME}:/media/anime
         - ${ANIMEPELICULA}:/media/anime_pelicula
