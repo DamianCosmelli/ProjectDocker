@@ -2,10 +2,6 @@
 *.html
 *.js
 kong/db_data/
-Plex Media Server/
 tmp/
-portainer_data/
 live/
 mysql_data/
-pihole/etc-dnsmasq.d/
-pihole/etc-pihole/
